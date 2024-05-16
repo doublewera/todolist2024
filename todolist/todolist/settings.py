@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'tasklist'
 ]
 
 MIDDLEWARE = [
@@ -76,7 +77,8 @@ DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
         "OPTIONS": {
-            "service": 
+            "service": "tudushka"
+        }
     }
 }
 
