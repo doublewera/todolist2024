@@ -1,3 +1,4 @@
 secret.py
 Pipfile.lock
 __pycache__
+migrations

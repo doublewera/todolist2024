@@ -15,6 +15,6 @@ def index(request):
     return render(
         request,                # Запрос
 	    'tasklist/index.html',  # путь к шаблону
-        context               # подстановки
+        context                 # подстановки
     )
 
