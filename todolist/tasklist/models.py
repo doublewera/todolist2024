@@ -8,4 +8,4 @@ class Task(models.Model):
     deadline = models.DateTimeField(null=True)
     description = models.CharField(max_length=512)
     done = models.BooleanField(default=False)
-    category = models.CharField(default="#ff0000")#ColorField(default="#ff0000")
+    #category = models.CharField(default="#ff0000")#ColorField(default="#ff0000")

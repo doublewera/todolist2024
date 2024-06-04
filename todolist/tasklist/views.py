@@ -1,16 +1,15 @@
 from django.shortcuts import render
+from .models import Task
 
 # Create your views here.
 
 def index(request):
-    tasks = [
-        'Рассказать урок',
-        'Дать задание',
-        'Проверить задани',
-        'Объяснить домашку',
-    ]
+    tasks = Task.objects.all()
+    # Вытащить из БД все объекты типа Task
+    
     context = {
         'kogda': 'сегодня',
+        'tasks': tasks,
     }  
     return render(
         request,                # Запрос

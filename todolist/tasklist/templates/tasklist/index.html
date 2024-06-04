@@ -1,4 +1,9 @@
 <h1>Список задач на {{kogda}}</h1>
+{% comment %}
+ПОДСТАНОВКА БУДЕТ ОБРАБОТАНА ЦИКЛОМ
+{% endcomment %}
 <ol>
-    <li></li>
+{% for t in tasks %}
+    <li>{{t.description}}</li>
+{% endfor %}
 </ol>
