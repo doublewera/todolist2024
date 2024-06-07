@@ -1,6 +1,9 @@
+{% extends 'mainpage/header_footer.html' %}
+{% block content %}
 <form action="{% url 'new_task' %}" method="post">
     {% csrf_token %}
         {{ form }}
     <input type="submit" value="Создать задачу">
 </form>
     
+{% endblock %}

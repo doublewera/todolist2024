@@ -1,5 +1,15 @@
-<header><h1>Моя заглавная страничка</h1></header>
+{% load static %}
+<link rel="stylesheet" href="{% static 'mainpage/style.css' %}" >
+<header>
+<img id="todologo" src="{% static 'mainpage/logo.png' %}" >
+
+<h1>Идеальный ежедневник</h1>
+</header>
+
+{% include 'mainpage/menu.html' %}
 
 {% block content %}{% endblock %}
 
-<footer class="footer"> {% now "Y" %} </footer>
+<footer class="footer">
+    Лучший способ управиться с делами в {% now "Y" %} году
+</footer>

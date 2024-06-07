@@ -1,6 +1,6 @@
-{% load static %}
-<link rel="stylesheet" href="{% static 'tasklist/style.css' %}" >
-<img id="todologo" src="{% static 'tasklist/logo.png' %}" >
+{% extends 'mainpage/header_footer.html' %}
+{% block content %}
+
 {% comment %}
 Создать директорию static/tasklist
 положить туда картинку logo.png
@@ -15,3 +15,5 @@
     <li>{{t.description}}</li>
 {% endfor %}
 </ol>
+
+{% endblock %}
