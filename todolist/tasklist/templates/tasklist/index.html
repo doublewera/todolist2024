@@ -13,6 +13,7 @@
 {% comment %}
 ПОДСТАНОВКА БУДЕТ ОБРАБОТАНА ЦИКЛОМ
 {% endcomment %}
+{% csrf_token %}
 <ol id="all_tasks">
 {% for t in tasks %}
     <li>{{t.description}} {{t.deadline}}</li>

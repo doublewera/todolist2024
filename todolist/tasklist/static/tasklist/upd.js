@@ -1,6 +1,15 @@
 function update_list() {
     console.log('ready');
-    fetch('/tasklist/update_tasks/'
+    fetch('/tasklist/update_tasks/', {
+        method: "post" ,
+        body: JSON.stringify({
+            param_pam_pam: "Val"
+        }),
+        headers: {
+            'X-CSRFToken': document.querySelector(
+                '[name=csrfmiddlewaretoken]').value
+        }
+    }
     ).then((data) => {
         if (true) {  //data.status == 200)
             console.log('RESPONSE!');
