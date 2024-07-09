@@ -1,6 +1,9 @@
 {% extends 'mainpage/header_footer.html' %}
 {% block content %}
 
+{% load static %}
+<script src={% static 'tasklist/upd.js'%}></script>
+
 {% comment %}
 Создать директорию static/tasklist
 положить туда картинку logo.png
@@ -10,9 +13,9 @@
 {% comment %}
 ПОДСТАНОВКА БУДЕТ ОБРАБОТАНА ЦИКЛОМ
 {% endcomment %}
-<ol>
+<ol id="all_tasks">
 {% for t in tasks %}
-    <li>{{t.description}}</li>
+    <li>{{t.description}} {{t.deadline}}</li>
 {% endfor %}
 </ol>
 
