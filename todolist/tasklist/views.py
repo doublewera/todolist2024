@@ -4,15 +4,24 @@ from .models import Task
 from datetime import datetime
 import json
 
+def task_desc(tasks):
+    result = []
+    for t in tasks:
+        result.append(t.description)
+    return result
+
 def get_all_tasks(request):
     print('MY METHOD', request.method)
     print('MY BODY', request.body)
     json_str = request.body.decode('utf-8')
     json_objs = json_str.split('\n')
     print(json.loads(json_objs[0]))
-    #tasks = Task.objects.all()
+    tasks = Task.objects.filter(
+        deadline__gte='2024-07-10'
+    )
     return JsonResponse(
-        {'mydata': 'Молодец, уже лучше!'}
+        {'mydata': 'Молодец, уже лучше!',
+         'tasks': task_desc(tasks)}
     )
 
 
@@ -25,7 +34,7 @@ def index(request):
         'kogda': 'сегодня',
         'tasks': tasks,
     }
-    return render(
+    return render(              # HttpResponse
         request,                # Запрос
 	    'tasklist/index.html',  # путь к шаблону
         context                 # подстановки
