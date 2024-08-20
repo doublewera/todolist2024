@@ -15,9 +15,9 @@ def get_all_tasks(request):
     print('MY BODY', request.body)
     json_str = request.body.decode('utf-8')
     json_objs = json_str.split('\n')
-    print(json.loads(json_objs[0]))
+    json_request = json.loads(json_objs[0])
     tasks = Task.objects.filter(
-        deadline__gte='2024-07-10'
+        deadline__gte=json_request['dt']   #'2024-07-10' gte >= lte <=
     )
     return JsonResponse(
         {'mydata': 'Молодец, уже лучше!',

@@ -6,15 +6,16 @@ function update_list() {
         абсолютный (на этом домене)
         относительный (на этом домене) */
         '/tasklist/update_tasks/', {
-        method: "post" ,
-        body: JSON.stringify({
-            param_pam_pam: "Val"
-        }),
-        headers: {
-            'X-CSRFToken': document.querySelector(
+            method: "post" ,
+            body: JSON.stringify({
+                    param_pam_pam: 'Val',
+                    dt:            '2024-05-10'
+                }),
+            headers: {
+                'X-CSRFToken': document.querySelector(
                 '[name=csrfmiddlewaretoken]').value
+            }
         }
-    }
     ).then((data) => {
         if (true) {  //data.status == 200)
             console.log('RESPONSE!');
