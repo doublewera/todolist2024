@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 def index(request):
     context = {}  
@@ -8,7 +8,7 @@ def index(request):
         context                 # подстановки
     )
 
-from .forms import UserRegistrationForm  #, LoginForm
+from .forms import UserRegistrationForm, UserLoginForm
 
 def register(request):
     if request.method == 'POST':
@@ -26,6 +26,31 @@ def register(request):
     return render(
         request,
         'mainpage/register.html',
+        {
+            'user_form': user_form
+        })
+
+
+from django.contrib import auth
+def loginme(request):
+    if request.method == 'POST':
+        user_form = UserLoginForm(request.POST)
+        if user_form.is_valid():
+            cd = user_form.cleaned_data
+            user = auth.authenticate(
+                username=cd['username'],
+                password=cd['password'])
+            if user is not None:
+                if user.is_active:
+                    auth.login(request, user)
+                return redirect('/')
+            else:
+                return redirect('login')
+    else:
+        user_form = UserLoginForm()
+    return render(
+        request,
+        'mainpage/user_login.html',
         {
             'user_form': user_form
         })

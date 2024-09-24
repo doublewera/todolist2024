@@ -1,0 +1,11 @@
+{% extends "mainpage/header_footer.html" %}
+
+{% block title %}Вход на сайт{% endblock %}
+
+{% block content %}
+    <form action="." method="post">
+        {{ user_form.as_p }}
+        {% csrf_token %}
+        <p><input type="submit" value="Войти"></p>
+    </form>
+{% endblock %}
