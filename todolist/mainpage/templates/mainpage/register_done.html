@@ -1,0 +1,8 @@
+{% extends "mainpage/header_footer.html" %}
+
+{% block title %}Добро пожаловать{% endblock %}
+
+{% block content %}
+    <h1>{{ new_user.first_name }}, Вы зарегистрированы</h1>
+    <p>Вы можете <a href="{% url "login" %}">войти на сайт</a>.</p>
+{% endblock %}

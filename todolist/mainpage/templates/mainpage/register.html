@@ -1,0 +1,13 @@
+{% extends "mainpage/header_footer.html" %}
+
+{% block title %}Создать аккаунт{% endblock %}
+
+{% block content %}
+    <h1>Хотите зарегистрироваться?</h1>
+    <p>Заполните поля и подпишите форму:</p>
+    <form action="." method="post">
+        {{ user_form.as_p }}
+        {% csrf_token %}
+        <p><input type="submit" value="Подписать"></p>
+    </form>
+{% endblock %}

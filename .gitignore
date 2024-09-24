@@ -2,3 +2,4 @@ secret.py
 Pipfile.lock
 __pycache__
 migrations
+my_users.txt
