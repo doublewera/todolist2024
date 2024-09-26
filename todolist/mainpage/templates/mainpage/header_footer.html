@@ -6,9 +6,10 @@
 <header>
 <img id="todologo" src="{% static 'mainpage/logo.png' %}" >
 
-{% block title %}
-<h1>Идеальный ежедневник</h1>
+<h1>{% block title %}
+Идеальный ежедневник
 {% endblock %}
+</h1>
 </header>
 
 {% include 'mainpage/menu.html' %}
