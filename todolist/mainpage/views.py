@@ -1,7 +1,13 @@
 from django.shortcuts import render, redirect
+from django.contrib.auth.models import User
 
 def index(request):
-    context = {}  
+    user = None
+    if request.user.is_authenticated:
+         user = request.user
+    context = {
+        'user': user
+    }  
     return render(
         request,                # Запрос
 	    'mainpage/index.html',  # путь к шаблону
